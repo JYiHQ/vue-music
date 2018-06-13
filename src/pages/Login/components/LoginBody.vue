@@ -2,21 +2,59 @@
   <div class="body">
     <div class="input-wrapper">
       <img class="img" src="../../../assets/icon/phone.svg"/>
-      <span class="span">+ 86</span>
-      <input type="number" class="input"/>
+      <span class="span" :class="{active: isActive}">+ 86</span>
+      <input autofocus type="number" class="input" placeholder="请输入手机号" v-model="info.phoneNumber"
+             @input="handleInput" />
+      <img v-show="isShow" @click="cleanInput" class="img-cancel"
+           src="../../../assets/icon/cancel.svg">
     </div>
     <div class="input-wrapper">
       <img class="img" src="../../../assets/icon/lock.svg"/>
-      <input class="input"/>
-      <span class="text">忘记密码？</span>
+      <input type="password" class="input input-position" :placeholder="placeholder"
+             @focus="handleFocus" v-model="info.password"/>
+      <span class="text" @click="handleJump" v-show="forgetPassword">忘记密码？</span>
     </div>
-    <button class="btn">{{btnText}}</button>
+    <button class="btn" @click="handleConfirm">{{btnText}}</button>
   </div>
 </template>
 <script>
 export default {
   name: 'LoginBody',
-  props: ['btnText'],
+  props: ['btnText', 'forgetPassword', 'placeholder'],
+  data() {
+    return {
+      isActive: false,
+      isShow: false,
+      info: {
+        phoneNumber: '',
+        password: '',
+      },
+    };
+  },
+  methods: {
+    handleInput() {
+      this.isActive = true;
+      this.isShow = true;
+      if (this.phoneNumber === '') {
+        this.isActive = false;
+        this.isShow = false;
+      }
+    },
+    cleanInput() {
+      this.phoneNumber = ' ';
+      this.isActive = false;
+      this.isShow = false;
+    },
+    handleFocus() {
+      this.isShow = false;
+    },
+    handleJump() {
+      this.$router.push('/forgetPassword');
+    },
+    handleConfirm() {
+      this.$emit('confirm', this.info);
+    },
+  },
 };
 </script>
 <style scoped lang="stylus">
@@ -31,30 +69,42 @@ export default {
       margin-bottom :5px;
       position :relative;
       left :17px;
+      border-bottom :1px solid #C7C5C1;
       .img
         width :30px;
         height :30px;
         position :absolute;
         top:5px;
-      .span
-        color :rgba(213,209,211,0.55);
+      .img-cancel
         position :absolute;
-        top:7px;
+        top:15px;
+        left: 315px;
+      .span
+        color :#C7C5C1;
+        font-size :16px;
+        position :absolute;
+        top:13px;
         left:30px;
+      .active
+        color: #333;
       .input
         line-height :30px;
         font-size :18px;
-        border-bottom :1px solid rgba(213,209,211,0.55);
         position :relative;
-        top:3px;
+        top:10px;
         left:80px;
         caret-color: #d43c33;
         padding :0;
+      .input-position
+        position :relative;
+        top:10px;
+        left:50px;
       .text
         font-size :14px;
         color:rgba(16,123,255,0.51);
         position :relative
-        left:40px;
+        left:45px;
+        top:5px;
     .btn
       width :90%;
       line-height :35px;
@@ -64,4 +114,7 @@ export default {
       color:white;
       background-color :#d43c33;
       border-radius :19px;
+    ::-webkit-input-placeholder
+      color:#dadad3;
+      font-size :16px;
 </style>

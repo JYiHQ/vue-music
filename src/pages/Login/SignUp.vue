@@ -4,36 +4,32 @@
     </login-header>
     <login-body :btnText="btnText"
                 :forgetPassword="forgetPassword"
-                :placeholder="placeholder"
-                @confirm="handleConfirm"
-    >
+                :placeholder="placeholder">
     </login-body>
+    <login-footer :footerText="footerText">
+    </login-footer>
   </div>
 </template>
 <script>
 import LoginHeader from './components/LoginHeader';
 import LoginBody from './components/LoginBody';
+import LoginFooter from './components/LoginFooter';
 
 export default {
-  name: 'LoginByPhone',
+  name: 'SignUp',
   components: {
-    LoginHeader,
     LoginBody,
+    LoginHeader,
+    LoginFooter,
   },
   data() {
     return {
-      headerText: '手机号登录',
-      btnText: '登录',
-      forgetPassword: true,
-      placeholder: '请输入密码',
+      headerText: '手机号注册',
+      btnText: '下一步',
+      forgetPassword: false,
+      placeholder: '设置登录密码，不少于6位',
+      footerText: '其他注册方式',
     };
-  },
-  methods: {
-    handleConfirm() {
-      // console.log(items);
-      // this.$store.dispatch('login_byPhone', items);
-      this.$router.push('/home');
-    },
   },
 };
 </script>

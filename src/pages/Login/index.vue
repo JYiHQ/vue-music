@@ -2,25 +2,32 @@
   <div class="wrapper">
     <div class="content">
       <img class="img" src="../../assets/icon/logo.svg"/>
-      <button class="button position1" @click="handlePageJump">手机号登录</button>
-      <button class="button position2">注册</button>
+      <button class="button position1" @click="jumpLoginPage">手机号登录</button>
+      <button class="button position2" @click="jumpSingUpPage">注册</button>
     </div>
-    <footer class="footer">
-      <p class="text">其他登录方式</p>
-      <div class="btn-wrapper">
-        <i class="iconfont el-icon-jin-weixin weixin-btn"></i>
-        <i class="iconfont el-icon-jin-qq qq-btn"></i>
-        <i class="iconfont el-icon-jin-weibo weibo-btn"></i>
-      </div>
-    </footer>
+    <login-footer :footerText="footerText">
+    </login-footer>
   </div>
 </template>
 <script>
+import LoginFooter from './components/LoginFooter';
+
 export default {
   name: 'Login',
+  components: {
+    LoginFooter,
+  },
+  data() {
+    return {
+      footerText: '其他登录方式',
+    };
+  },
   methods: {
-    handlePageJump() {
+    jumpLoginPage() {
       this.$router.push('/loginByPhone');
+    },
+    jumpSingUpPage() {
+      this.$router.push('/signUp');
     },
   },
 };
@@ -45,37 +52,10 @@ export default {
         background-color :white;
       .position1
         position :absolute
-        top:190px;
+        top:210px;
         left: 60px;
       .position2
         position :absolute
-        top:240px;
+        top:260px;
         left: 60px;
-    .footer
-      width: 375px;
-      padding-bottom :80px;
-      position :absolute;
-      top:570px;
-      .text
-        font-size: 12px;
-        position :absolute;
-        left:155px;
-      .qq-btn
-        font-size :32px;
-        color rgba(16,150,255,0.64);
-        position :absolute;
-        top:40px;
-        left:175px;
-      .weixin-btn
-        font-size :36px;
-        color:rgba(13,213,25,0.9);
-        position :absolute;
-        top:37px;
-        left:110px;
-      .weibo-btn
-        font-size :32px;
-        color:rgba(228,31,8,0.62);
-        position :absolute;
-        top:40px;
-        left:240px;
 </style>

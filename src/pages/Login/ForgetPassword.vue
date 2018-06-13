@@ -5,7 +5,6 @@
     <login-body :btnText="btnText"
                 :forgetPassword="forgetPassword"
                 :placeholder="placeholder"
-                @confirm="handleConfirm"
     >
     </login-body>
   </div>
@@ -15,27 +14,18 @@ import LoginHeader from './components/LoginHeader';
 import LoginBody from './components/LoginBody';
 
 export default {
-  name: 'LoginByPhone',
+  name: 'ForgetPassword',
   components: {
-    LoginHeader,
     LoginBody,
+    LoginHeader,
   },
   data() {
     return {
-      headerText: '手机号登录',
-      btnText: '登录',
-      forgetPassword: true,
-      placeholder: '请输入密码',
+      headerText: '忘记密码',
+      btnText: '下一步',
+      forgetPassword: false,
+      placeholder: '设置登录密码，不少于6位',
     };
-  },
-  methods: {
-    handleConfirm() {
-      // console.log(items);
-      // this.$store.dispatch('login_byPhone', items);
-      this.$router.push('/home');
-    },
   },
 };
 </script>
-<style scoped lang="stylus">
-</style>
