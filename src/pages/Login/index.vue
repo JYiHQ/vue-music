@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="content">
       <img class="img" src="../../assets/icon/logo.svg"/>
-      <button class="button position1">手机号登录</button>
+      <button class="button position1" @click="handlePageJump">手机号登录</button>
       <button class="button position2">注册</button>
     </div>
     <footer class="footer">
@@ -18,6 +18,11 @@
 <script>
 export default {
   name: 'Login',
+  methods: {
+    handlePageJump() {
+      this.$router.push('/loginByPhone');
+    },
+  },
 };
 </script>
 <style scoped lang="stylus">
@@ -63,7 +68,7 @@ export default {
         left:175px;
       .weixin-btn
         font-size :36px;
-        color:rgba(27,228,11,0.62);
+        color:rgba(13,213,25,0.9);
         position :absolute;
         top:37px;
         left:110px;
