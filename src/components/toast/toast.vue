@@ -19,6 +19,11 @@ export default {
       toastShow: false,
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.toastShow = false;
+    }, 800);
+  },
 };
 </script>
 <style scoped lang="stylus">

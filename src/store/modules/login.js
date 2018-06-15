@@ -18,6 +18,7 @@ const login = {
     // 手机号登录
     async login_byPhone(items) {
       const result = await userLoginByPhone(items);
+      console.log(result);
     },
   },
 };

@@ -5,13 +5,18 @@
       <img class="img music" src="../../../assets/icon/music.svg"/>
       <img class="img wangyi" src="../../../assets/icon/wangyi.svg"/>
       <img class="img player" src="../../../assets/icon/player.svg"/>
-      <img class="img search" src="../../../assets/icon/search.svg"/>
+      <img @click="jumpSearchPage" class="img search" src="../../../assets/icon/search.svg"/>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'HomeHeader',
+  methods: {
+    jumpSearchPage() {
+      this.$router.push('/search');
+    },
+  },
 };
 </script>
 <style scoped lang="stylus">
