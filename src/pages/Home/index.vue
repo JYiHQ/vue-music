@@ -1,21 +1,24 @@
 <template>
   <div class="wrapper">
-    <home-header></home-header>
-    <home-content></home-content>
-    <home-recommoned></home-recommoned>
+    <home-header>
+    </home-header>
+    <home-content>
+    </home-content>
+    <home-recommend>
+    </home-recommend>
   </div>
 </template>
 <script>
 import HomeHeader from './components/HomeHeader';
 import HomeContent from './components/HomeContent';
-import HomeRecommoned from './HomeRecommoned/index';
+import HomeRecommend from './components/HomeRecommend';
 
 export default {
   name: 'Home',
   components: {
     HomeHeader,
     HomeContent,
-    HomeRecommoned,
+    HomeRecommend,
   },
   mounted() {
     this.$store.dispatch('get_songsList');

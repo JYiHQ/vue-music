@@ -1,4 +1,3 @@
-import { userLoginByPhone } from '../../api/login';
 
 const login = {
   state: {
@@ -16,10 +15,6 @@ const login = {
   },
   actions: {
     // 手机号登录
-    async login_byPhone(items) {
-      const result = await userLoginByPhone(items);
-      console.log(result);
-    },
   },
 };
 
