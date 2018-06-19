@@ -27,6 +27,7 @@ export default {
         paginationClickable: true,
         mousewheelControl: true,
         observeParents: true,
+        loop: true,
       },
     };
   },
