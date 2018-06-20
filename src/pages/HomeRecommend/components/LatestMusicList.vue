@@ -8,7 +8,7 @@
       <div class="row">
         <div class="item" v-for="music in list" :key="music.id">
           <img class="item-img" :src="music.picUrl"/>
-          <span>{{music.name}}</span>
+          <span class="item-text">{{music.name}}</span>
         </div>
       </div>
     </div>
@@ -30,7 +30,9 @@ export default {
     }),
   },
   mounted() {
-    this.list = this.latestMusic.slice(0, 6);
+    this.$store.dispatch('get_latestMusic').then(() => {
+      this.list = this.latestMusic.slice(0, 6);
+    });
   },
 };
 </script>
@@ -64,4 +66,6 @@ export default {
           .item-img
             width 98%;
             height 100px;
+          .item-text
+            font-size 12px;
 </style>

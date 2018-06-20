@@ -8,7 +8,7 @@
       <div class="row">
         <div class="item" v-for="radio in list" :key="radio.id">
           <img class="item-img" :src="radio.picUrl"/>
-          <span>{{radio.name}}</span>
+          <span class="item-text">{{radio.name}}</span>
         </div>
       </div>
     </div>
@@ -66,4 +66,6 @@ export default {
           .item-img
             width 98%;
             height 100px;
+          .item-text
+            font-size 12px;
 </style>

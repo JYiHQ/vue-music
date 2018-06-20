@@ -6,6 +6,7 @@ import ForgetPassword from '../pages/Login/ForgetPassword';
 import SignUp from '../pages/Login/SignUp';
 import Home from '../pages/Home/index';
 import Search from '../pages/Search/index';
+import SongsListDetails from '../pages/SongsListDetails/index';
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search,
+    },
+    {
+      path: '/listDetails',
+      name: 'SongsListDetails',
+      component: SongsListDetails,
     },
   ],
 });

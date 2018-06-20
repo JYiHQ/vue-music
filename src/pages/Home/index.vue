@@ -18,7 +18,6 @@ export default {
     HomeRecommend,
   },
   mounted() {
-    this.$store.dispatch('get_latestMusic');
     this.$store.dispatch('get_sowingMap');
   },
 };

@@ -6,9 +6,9 @@
     </div>
     <div class="content">
       <div class="row">
-        <div class="item" v-for="song in list" :key="song.id">
+        <div class="item" v-for="song in list" :key="song.id" @click="handleClick(song.id)">
           <img class="item-img" :src="song.picUrl"/>
-          <span>{{song.name}}</span>
+          <span class="item-text">{{song.name}}</span>
         </div>
       </div>
     </div>
@@ -37,6 +37,13 @@ export default {
     this.$store.dispatch('get_songsList').then(() => {
       this.list = this.songsList.slice(0, 6);
     });
+  },
+  methods: {
+    handleClick(listId) {
+      this.$store.dispatch('get_listDetails', { id: listId }).then(() => {
+        this.$router.push('/listDetails');
+      });
+    },
   },
 };
 </script>
@@ -70,4 +77,6 @@ export default {
           .item-img
             width 98%;
             height 100px;
+          .item-text
+            font-size 12px;
 </style>
