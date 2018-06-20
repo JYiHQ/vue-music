@@ -34,36 +34,40 @@ export default {
     }),
   },
   mounted() {
-    this.list = this.songsList.slice(0, 6);
-    console.log('获得数据');
+    this.$store.dispatch('get_songsList').then(() => {
+      this.list = this.songsList.slice(0, 6);
+    });
   },
 };
 </script>
 <style scoped lang="stylus">
-  .header
+  .wrapper
     position relative;
-    padding-left 10px;
-    .img
-      width 15px;
-      height 15px;
-      position absolute;
-      top 3px;
-      left 80px;
-  .content
-    display flex;
-    flex-direction column;
-    .row
-      width 97%;
-      margin-bottom 10px;
+    top 65px;
+    .header
+      position relative;
       padding-left 10px;
+      .img
+        width 15px;
+        height 15px;
+        position absolute;
+        top 3px;
+        left 80px;
+    .content
       display flex;
-      flex-flow row wrap;
-      .item
-        width 32.9%;
-        height 120px;
-        margin-bottom 30px;
-        text-overflow clip;
-        .item-img
-          width 98%;
-          height 100px;
+      flex-direction column;
+      .row
+        width 97%;
+        margin-bottom 10px;
+        padding-left 10px;
+        display flex;
+        flex-flow row wrap;
+        .item
+          width 32.9%;
+          height 120px;
+          margin-bottom 30px;
+          text-overflow clip;
+          .item-img
+            width 98%;
+            height 100px;
 </style>

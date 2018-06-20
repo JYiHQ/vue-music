@@ -25,6 +25,9 @@ export default {
     height: 38px;
     background-color :#d43c33;
     padding-top : 10px;
+    position fixed;
+    top 0;
+    z-index: 999;
     .header-btn
       position :relative;
       .img

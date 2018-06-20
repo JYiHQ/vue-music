@@ -45,6 +45,7 @@ export default {
 <style scoped lang="stylus">
   .wrapper
     position relative;
+    top 80px;
     .back
       width 100%;
       height 115px;

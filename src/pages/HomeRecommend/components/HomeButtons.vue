@@ -11,4 +11,6 @@ export default {
     width 100%;
     height 130px;
     border-bottom 1px solid rgba(237,238,236,0.83);
+    position relative;
+    top 70px;
 </style>

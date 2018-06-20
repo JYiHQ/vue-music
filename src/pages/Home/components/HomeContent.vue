@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    <tab :tabItems="tabItems">
-    </tab>
-    <!--<toast></toast>-->
+    <tab :tabItems="tabItems"></tab>
   </div>
 </template>
 <script>
@@ -25,4 +23,8 @@ export default {
 };
 </script>
 <style scoped lang="stylus">
+  .wrapper
+    position fixed;
+    top 45px;
+    z-index 999;
 </style>
