@@ -1,7 +1,7 @@
 <template>
   <div class="headerWrapper">
     <div class="header">
-      <img class="imgLeft" src="../../../assets/icon/jiantouzuo.svg"/>
+      <img @click="handleBack" class="imgLeft" src="../../../assets/icon/jiantouzuo.svg"/>
       <span class="headerText">{{text}}</span>
       <div class="description">{{description}}</div>
       <img class="img" src="../../../assets/icon/search.svg"/>
@@ -18,11 +18,16 @@ export default {
       description: '编辑推荐：想要和你一起幸福的走下去',
     };
   },
+  methods: {
+    handleBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 <style scoped lang="stylus">
   .headerWrapper
-    width 100%;
+    width 96%;
     height 58px;
     padding 0;
     position fixed;

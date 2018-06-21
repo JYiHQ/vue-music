@@ -9,6 +9,8 @@ const songsDetails = {
     songCount: null,
     listName: '',
     coverImgUrl: '',
+    playCount: null,
+    subscribedCount: null,
     response: {
       code: null,
       msg: '',
@@ -47,6 +49,14 @@ const songsDetails = {
     GET_IMAGE_URL(state, payload) {
       state.coverImgUrl = payload;
     },
+    // 获取歌单的播放量
+    GET_PLAY_COUNT(state, payload) {
+      state.playCount = payload;
+    },
+    // 获取歌单收藏人数
+    GET_SUBSCRIBED_COUNT(state, payload) {
+      state.subscribedCount = payload;
+    },
   },
   actions: {
     // 请求
@@ -59,6 +69,8 @@ const songsDetails = {
       commit('GET_SHARE_COUNT', response.data.playlist.shareCount);
       commit('GET_SONG_NUMBER', response.data.playlist.trackCount);
       commit('GET_IMAGE_URL', response.data.playlist.coverImgUrl);
+      commit('GET_PLAY_COUNT', response.data.playlist.playCount);
+      commit('GET_SUBSCRIBED_COUNT', response.data.playlist.subscribedCount);
     },
   },
 };

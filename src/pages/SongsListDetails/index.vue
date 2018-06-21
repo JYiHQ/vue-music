@@ -4,7 +4,9 @@
     <div class="header" :style="styleObject">
       <list-header></list-header>
       <list-info></list-info>
+      <list-button></list-button>
     </div>
+    <songs-list></songs-list>
   </div>
 </template>
 <script>
@@ -12,12 +14,16 @@ import { mapState } from 'vuex';
 import RGBaster from '../../assets/js/rgbaster';
 import ListHeader from './components/ListHeader';
 import ListInfo from './components/ListInfo';
+import ListButton from './components/ListButton';
+import SongsList from './components/SongsList';
 
 export default {
   name: 'SongsListDetails',
   components: {
     ListHeader,
     ListInfo,
+    ListButton,
+    SongsList,
   },
   data() {
     return {
@@ -57,10 +63,11 @@ export default {
 </script>
 <style scoped lang="stylus">
   .wrapper
+    padding 0;
     .img
       width 100%;
       display none;
     .header
       width 100%;
-      height 200px;
+      height 260px;
 </style>
