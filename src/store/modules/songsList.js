@@ -11,8 +11,8 @@ const songsList = {
     },
   },
   actions: {
-    async get_highQualitySong({ commit }) {
-      const response = await getHighQualitySong();
+    async get_highQualitySong({ commit }, items) {
+      const response = await getHighQualitySong(items);
       commit('GET_SONGS_LIST', response.data.playlists);
     },
   },

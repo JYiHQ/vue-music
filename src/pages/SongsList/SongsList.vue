@@ -16,6 +16,7 @@ export default {
   .row
     display flex;
     flex-flow row wrap;
+    margin-right 5px;
     .item
      width 45%;
      height 100px;
