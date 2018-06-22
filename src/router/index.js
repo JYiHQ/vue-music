@@ -7,6 +7,7 @@ import SignUp from '../pages/Login/SignUp';
 import Home from '../pages/Home/index';
 import Search from '../pages/Search/index';
 import SongsListDetails from '../pages/SongsListDetails/index';
+import SongsList from '../pages/SongsList/index';
 
 Vue.use(Router);
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/listDetails',
       name: 'SongsListDetails',
       component: SongsListDetails,
+    },
+    {
+      path: '/songsList',
+      name: 'SongsList',
+      component: SongsList,
     },
   ],
 });

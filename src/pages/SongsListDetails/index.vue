@@ -43,13 +43,15 @@ export default {
     const img = document.getElementById('image');
     let color = '';
     RGBaster.colors(img, {
-      paletteSize: 30,
+      // paletteSize: 50,
       exclude: ['rgb(255,255,255)', 'rgb(0,0,0)'],
       success(payload) {
         // payload.dominant是主色，RGB形式表示
         // payload.secondary是次色，RGB形式表示
         // payload.palette是调色板，含多个主要颜色，数组
-        color = payload.dominant;
+        // const colorArr = payload.palette;
+        color = payload.secondary;
+        // console.log(payload.palette);
       },
     });
     this.timeFn = setInterval(() => {

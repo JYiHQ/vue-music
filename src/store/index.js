@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import login from './modules/login';
 import home from './modules/home';
 import songsDetails from './modules/songsListDetails';
+import songList from './modules/songsList';
 
 Vue.use(Vuex);
 
@@ -12,5 +13,6 @@ export default new Vuex.Store({
     login,
     home,
     songsDetails,
+    songList,
   },
 });

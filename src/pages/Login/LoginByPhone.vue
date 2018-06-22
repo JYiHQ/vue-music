@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import LoginHeader from './components/LoginHeader';
+import LoginHeader from '../../components/header/VHeader';
 import LoginBody from './components/LoginBody';
 
 export default {

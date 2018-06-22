@@ -1,12 +1,12 @@
 <template>
   <div class="header">
-    <img @click="handleBackPage" class="img" src="../../../assets/icon/jiantouzuo.svg"/>
+    <img @click="handleBackPage" class="img" src="../../assets/icon/jiantouzuo.svg"/>
     <span class="span">{{headerText}}</span>
   </div>
 </template>
 <script>
 export default {
-  name: 'LoginHeader',
+  name: 'VHeader',
   props: ['headerText'],
   methods: {
     handleBackPage() {

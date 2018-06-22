@@ -12,7 +12,7 @@
       </div>
       <div class="img-text">每日推荐</div>
     </div>
-    <div class="imgWrapper position3">
+    <div class="imgWrapper position3" @click.stop="jumpSongsList">
       <div class="img-wrapper">
         <img class="img" src="../../../assets/icon/songList.svg"/>
       </div>
@@ -29,6 +29,11 @@
 <script>
 export default {
   name: 'HomeButtons',
+  methods: {
+    jumpSongsList() {
+      this.$router.push('/songsList');
+    },
+  },
 };
 </script>
 <style scoped lang="stylus">
