@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="content">
       <div class="type1">
-        <div class="type1-item">
+        <div class="type1-item" @click.stop="handleClick({ name: '全部'})">
           <span class="text">全部歌单</span>
         </div>
       </div>
@@ -13,7 +13,8 @@
             <div class="header-text">语种</div>
           </div>
           <div class="type2-content">
-            <div class="item" v-for="(item, index) in language" :key="index">
+            <div class="item" v-for="(item, index) in language" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
@@ -26,14 +27,16 @@
             <div class="header-text">风格</div>
           </div>
           <div class="type2-content">
-            <div class="item" v-for="(item, index) in style" :key="index">
+            <div class="item" v-for="(item, index) in style" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="type2-content1">
-            <div class="item" v-for="(item, index) in style1" :key="index">
+            <div class="item" v-for="(item, index) in style1" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
@@ -46,14 +49,16 @@
             <div class="header-text">场景</div>
           </div>
           <div class="type2-content">
-            <div class="item" v-for="(item, index) in scene" :key="index">
+            <div class="item" v-for="(item, index) in scene" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="type2-content1">
-            <div class="item" v-for="(item, index) in scene1" :key="index">
+            <div class="item" v-for="(item, index) in scene1" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
@@ -66,14 +71,16 @@
             <div class="header-text">情感</div>
           </div>
           <div class="type2-content">
-            <div class="item" v-for="(item, index) in emotion" :key="index">
+            <div class="item" v-for="(item, index) in emotion" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="type2-content1">
-            <div class="item" v-for="(item, index) in emotion1" :key="index">
+            <div class="item" v-for="(item, index) in emotion1"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
@@ -86,14 +93,16 @@
             <div class="header-text">主题</div>
           </div>
           <div class="type2-content">
-            <div class="item" v-for="(item, index) in theme" :key="index">
+            <div class="item" v-for="(item, index) in theme" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="type2-content1">
-            <div class="item" v-for="(item, index) in theme1" :key="index">
+            <div class="item" v-for="(item, index) in theme1" :class="{itemActive: item.isActive}"
+                 :key="index" @click.stop="handleClick(item)">
               <div>{{item.name}}</div>
             </div>
           </div>
@@ -152,6 +161,15 @@ export default {
       return [];
     },
     // 获取该类型下的歌单
+    handleClick(item) {
+      this.$set(item, 'isActive', true);
+      if (item.name !== '全部') {
+        this.$store.commit('CHANGE_NAME', item.name);
+      }
+      this.$store.dispatch('get_songByType', { tag: item.name, limit: 10 }).then(() => {
+        this.$router.go(-1);
+      });
+    },
   },
 };
 </script>

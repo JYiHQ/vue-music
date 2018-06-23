@@ -12,18 +12,24 @@
       </div>
     </div>
     <div class="content">
+      <list :songList="songList"></list>
     </div>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex';
+import List from '../../../components/list/list';
 
 export default {
   name: 'SongsList',
+  components: {
+    List,
+  },
   computed: {
     ...mapState({
       songCount: state => state.songsDetails.songCount,
       subscribedCount: state => state.songsDetails.subscribedCount,
+      songList: state => state.songsDetails.songList,
     }),
   },
 };

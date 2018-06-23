@@ -57,8 +57,8 @@ export default {
     this.timeFn = setInterval(() => {
       if (color) {
         this.styleObject.backgroundColor = color;
+        clearInterval(this.timeFn);
       }
-      clearInterval(this.timeFn);
     }, 100);
   },
 };

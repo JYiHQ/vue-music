@@ -16,16 +16,20 @@
           </div>
         </div>
         <div class="tag-wrapper">
-          <button class="btn" @click.stop="handleJumpPage">{{btnText}}
+          <button class="btn" @click.stop="handleJumpPage">{{btnName}}
             <img class="btn-img" src="../../assets/icon/arrow_black.svg"/>
           </button>
           <div class="tags-list">
-            <div class="tags" v-for="tag in tags" :key="tag.id">{{tag.name}}</div>
+            <div class="tags" v-for="tag in tags"
+                 :key="tag.id" @click.stop="handleChangeType(tag)">
+              {{tag.name}}
+            </div>
           </div>
         </div>
         <div class="list-wrapper">
           <div class="row">
-            <div class="item" v-for="item in listData" :key="item.id">
+            <div class="item" v-for="item in listData" :key="item.id"
+                 @click.stop="handleGetDetails(item)">
               <img class="img" :src="item.coverImgUrl"/>
               <div class="img-text">{{item.name}}</div>
               <div class="playCount">
@@ -59,7 +63,6 @@ export default {
       headerSong: {},
       unit: '万',
       headerText: '歌单',
-      btnText: '全部歌单',
       tags: [
         {
           id: 10,
@@ -84,6 +87,7 @@ export default {
   computed: {
     ...mapState({
       songsData: state => state.songList.songsList,
+      btnName: state => state.songList.btnName,
     }),
     listData() {
       const data = this.songsData;
@@ -102,6 +106,14 @@ export default {
   methods: {
     handleJumpPage() {
       this.$router.push('/songsType');
+    },
+    handleChangeType(item) {
+      this.$store.dispatch('get_songByType', { tag: item.name, limit: 10 });
+    },
+    handleGetDetails(item) {
+      this.$store.dispatch('get_listDetails', { id: item.id }).then(() => {
+        this.$router.push('/listDetails');
+      });
     },
   },
 };
