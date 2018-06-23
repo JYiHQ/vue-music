@@ -19,7 +19,7 @@ export function getSongList() {
 // 获取推荐电台
 export function getRadioStationList() {
   return request({
-    url: '/personalized/djprogram',
+    url: '/dj/recommend',
     method: 'get',
   });
 }

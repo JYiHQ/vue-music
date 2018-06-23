@@ -53,7 +53,7 @@ const home = {
     // 获取推荐电台
     async get_radioStation({ commit }) {
       const data = await getRadioStationList();
-      commit('GET_RADIO', data.data.result);
+      commit('GET_RADIO', data.data.djRadios);
     },
     // 获取首页轮播图
     async get_sowingMap({ commit }) {

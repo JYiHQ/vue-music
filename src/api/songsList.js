@@ -16,3 +16,12 @@ export function getSongListType() {
     method: 'get',
   });
 }
+
+// 获取指定类别的歌单
+export function getSongByType(item) {
+  return request({
+    url: '/top/playlist',
+    method: 'get',
+    params: item,
+  });
+}

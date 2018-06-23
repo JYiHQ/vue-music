@@ -8,6 +8,7 @@ import Home from '../pages/Home/index';
 import Search from '../pages/Search/index';
 import SongsListDetails from '../pages/SongsListDetails/index';
 import SongsList from '../pages/SongsList/index';
+import SongsType from '../pages/SongsType/index';
 
 Vue.use(Router);
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/songsList',
       name: 'SongsList',
       component: SongsList,
+    },
+    {
+      path: '/songsType',
+      name: 'SongsType',
+      component: SongsType,
     },
   ],
 });
