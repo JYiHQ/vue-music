@@ -18,7 +18,7 @@
       </div>
       <div class="img-text">歌单</div>
     </div>
-    <div class="imgWrapper position4">
+    <div class="imgWrapper position4" @click="jumpRankingList">
       <div class="img-wrapper">
         <img class="img" src="../../../assets/icon/rankingList.svg"/>
       </div>
@@ -32,6 +32,9 @@ export default {
   methods: {
     jumpSongsList() {
       this.$router.push('/songsList');
+    },
+    jumpRankingList() {
+      this.$router.push('/rankingList');
     },
   },
 };

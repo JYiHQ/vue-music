@@ -29,7 +29,7 @@ export default {
     width 100%
     .item-header
       flex 0 0 15%;
-      height 45px;
+      height 55px;
       display flex;
       justify-content center;
       align-items center;
@@ -37,13 +37,12 @@ export default {
     .item-content
       flex 0 0 85%;
       display flex;
-      height 45px;
+      height 55px;
       border-bottom 1px solid #c8c8c2;
-      font-family "SimHei"
       .item
         flex 0 0 10%;
         display flex;
-        height 45px;
+        height 55px;
         justify-content center;
         align-items center;
         .img
@@ -58,6 +57,7 @@ export default {
         .text1
           width 245px;
           height 25px;
+          font-size 17px;
           overflow: hidden;
           text-overflow:ellipsis;
           white-space: nowrap;
@@ -69,6 +69,6 @@ export default {
           text-overflow:ellipsis;
           white-space: nowrap;
           line-height 25px;
-          font-size 10px;
-          color #9e9e98;
+          font-size 12px;
+          color #888;
 </style>
