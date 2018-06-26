@@ -36,7 +36,6 @@ const rankingList = {
     // 获取官方榜的歌曲
     async get_officialRankingList({ commit }, item) {
       const response = await getOfficialRankingList(item);
-      commit('CLEAN_SONG');
       commit('GET_SONG', response.data.playlist.tracks);
     },
   },

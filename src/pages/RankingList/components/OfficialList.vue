@@ -64,7 +64,7 @@ export default {
         const obj = {
           tracks: [],
         };
-        obj.tracks = data2[index];
+        obj.tracks = data2[index + 1];
         Object.assign(item, obj);
       });
       return data1;
