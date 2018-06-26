@@ -8,10 +8,13 @@
            :key="item.id">
         <div class="img-wrapper">
           <img class="img" :src="item.coverImgUrl"/>
-          <div class="song-list">
-          </div>
           <div class="img-update">
             {{item.updateFrequency}}
+          </div>
+        </div>
+        <div class="song-list">
+          <div class="list-item" v-for="(list, index) in item.tracks" :key="list.id">
+            {{index + 1}}. {{list.name}} - {{list.ar[0].name}}
           </div>
         </div>
       </div>
@@ -25,14 +28,46 @@ export default {
   name: 'OfficialList',
   data() {
     return {
+      officialList: [],
     };
   },
   computed: {
     ...mapState({
       imageList: state => state.rankingList.coverImageList,
+      rankingListSong: state => state.rankingList.rankingListSong,
     }),
-    officialList() {
-      return this.imageList.slice(0, 6);
+  },
+  mounted() {
+    this.$store.dispatch('get_coverImage').then(() => {
+      this.$store.dispatch('get_officialRankingList', { idx: 3 }).then(() => {
+        this.$store.dispatch('get_officialRankingList', { idx: 0 }).then(() => {
+          this.$store.dispatch('get_officialRankingList', { idx: 1 }).then(() => {
+            this.$store.dispatch('get_officialRankingList', { idx: 2 }).then(() => {
+              this.$store.dispatch('get_officialRankingList', { idx: 4 }).then(() => {
+                this.$store.dispatch('get_officialRankingList', { idx: 23 }).then(() => {
+                  // this.officialList = this.handleData();
+                  console.log(this.imageList);
+                  console.log(this.rankingListSong);
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  },
+  methods: {
+    handleData() {
+      const data1 = this.imageList.slice(0, 6);
+      const data2 = this.rankingListSong;
+      for (let i = 0; i < data2.length; i += 1) {
+        const obj = {
+          tracks: [],
+        };
+        obj.tracks = data2[i];
+        Object.assign(data1[i], obj);
+      }
+      return data1;
     },
   },
 };
@@ -58,6 +93,19 @@ export default {
         height 100px
         display flex
         border-bottom 1px solid #cfcfc9
+        align-items flex-end
+        .song-list
+          flex 0 0 70%;
+          -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          box-sizing: border-box
+          height 80px
+          font-size 14px
+          display flex
+          flex-direction column
+          .list-item
+            flex 1
+            color #888
         .img-wrapper
           width 110px
           height 100px

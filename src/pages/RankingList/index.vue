@@ -23,7 +23,6 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch('get_coverImage');
   },
 };
 </script>

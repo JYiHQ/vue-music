@@ -7,8 +7,9 @@
       <div class="img-text">私人FM</div>
     </div>
     <div class="imgWrapper position2">
-      <div class="img-wrapper date">
+      <div class="img-wrapper">
         <img class="img" src="../../../assets/icon/date.svg"/>
+        <span class="imgDate">{{date}}</span>
       </div>
       <div class="img-text">每日推荐</div>
     </div>
@@ -29,6 +30,15 @@
 <script>
 export default {
   name: 'HomeButtons',
+  data() {
+    return {
+    };
+  },
+  computed: {
+    date() {
+      return new Date().getDate();
+    },
+  },
   methods: {
     jumpSongsList() {
       this.$router.push('/songsList');
@@ -73,6 +83,12 @@ export default {
         height 45px;
         border-radius 50%;
         background-color #d43c33;
+        position relative
+        .imgDate
+          color white
+          position absolute
+          top 17px;
+          left 14px;
         .img
           position relative;
           top 4px;
