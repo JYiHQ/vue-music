@@ -45,9 +45,9 @@ export default {
             this.$store.dispatch('get_officialRankingList', { idx: 2 }).then(() => {
               this.$store.dispatch('get_officialRankingList', { idx: 4 }).then(() => {
                 this.$store.dispatch('get_officialRankingList', { idx: 23 }).then(() => {
-                  // this.officialList = this.handleData();
-                  console.log(this.imageList);
-                  console.log(this.rankingListSong);
+                  setTimeout(() => {
+                    this.officialList = this.handleData();
+                  }, 500);
                 });
               });
             });
@@ -60,13 +60,13 @@ export default {
     handleData() {
       const data1 = this.imageList.slice(0, 6);
       const data2 = this.rankingListSong;
-      for (let i = 0; i < data2.length; i += 1) {
+      data1.forEach((item, index) => {
         const obj = {
           tracks: [],
         };
-        obj.tracks = data2[i];
-        Object.assign(data1[i], obj);
-      }
+        obj.tracks = data2[index];
+        Object.assign(item, obj);
+      });
       return data1;
     },
   },

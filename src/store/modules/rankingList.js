@@ -12,6 +12,10 @@ const rankingList = {
     GET_SONG(state, payload) {
       state.rankingListSong.push(payload);
     },
+    // 清空rankingListSong
+    CLEAN_SONG(state) {
+      state.rankingList = [];
+    },
   },
   getters: {
     // 处理返回的榜单数据
@@ -32,6 +36,7 @@ const rankingList = {
     // 获取官方榜的歌曲
     async get_officialRankingList({ commit }, item) {
       const response = await getOfficialRankingList(item);
+      commit('CLEAN_SONG');
       commit('GET_SONG', response.data.playlist.tracks);
     },
   },
