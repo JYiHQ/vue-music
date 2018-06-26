@@ -22,7 +22,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: 'ListButton',
+  name: 'SongListButton',
   computed: {
     ...mapState({
       commentCount: state => state.songsDetails.commentCount,
@@ -34,15 +34,18 @@ export default {
 <style scoped lang="stylus">
   .button-wrapper
     width 100%;
-    position relative;
-    top 80px;
-    left 15px;
+    height 40px;
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    position relative
+    top 140px;
     color white;
     font-size 14px;
     .comment
       position absolute;
       top 0;
-      left 20px;
+      left 35px;
       text-align center;
       .img
         width 20px;
@@ -50,7 +53,7 @@ export default {
     .share
       position absolute;
       top 0;
-      left 110px;
+      left 125px;
       text-align center;
       .img
         width 20px;
@@ -58,7 +61,7 @@ export default {
     .download
       position absolute;
       top 0;
-      left 200px;
+      left 215px;
       text-align center;
       .img
         width 20px;
@@ -66,7 +69,7 @@ export default {
     .select
       position absolute;
       top 0;
-      left 290px;
+      left 305px;
       text-align center;
       .img
         width 20px;

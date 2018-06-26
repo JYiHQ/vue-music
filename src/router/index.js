@@ -6,7 +6,7 @@ import ForgetPassword from '../pages/Login/ForgetPassword';
 import SignUp from '../pages/Login/SignUp';
 import Home from '../pages/Home/index';
 import Search from '../pages/Search/index';
-import SongsListDetails from '../pages/SongsListDetails/index';
+import SongsListDetails from '../pages/SongListDetails/index';
 import SongsList from '../pages/SongsList/index';
 import SongsType from '../pages/SongsType/index';
 import RankingList from '../pages/RankingList/index';

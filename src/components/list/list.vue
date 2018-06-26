@@ -25,6 +25,9 @@ export default {
 </script>
 <style scoped lang="stylus">
   .row
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
     display flex;
     width 100%
     .item-header

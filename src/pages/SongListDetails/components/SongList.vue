@@ -8,7 +8,7 @@
       </div>
       <div class="item2">
         <img class="item2-img" src="../../../assets/icon/add.svg"/>
-        <span class="img-text">收藏（{{subscribedCount}}）</span>
+        <span class="img-text">收藏（{{collectCount}}）</span>
       </div>
     </div>
     <div class="content">
@@ -22,6 +22,11 @@ import List from '../../../components/list/list';
 
 export default {
   name: 'SongsList',
+  data() {
+    return {
+      unit: '万',
+    };
+  },
   components: {
     List,
   },
@@ -31,6 +36,13 @@ export default {
       subscribedCount: state => state.songsDetails.subscribedCount,
       songList: state => state.songsDetails.songList,
     }),
+    collectCount() {
+      if (this.subscribedCount > 10000) {
+        const count = ((this.subscribedCount / 10000) - 0.1).toFixed(1);
+        return count + this.unit;
+      }
+      return this.subscribedCount;
+    },
   },
 };
 </script>
@@ -40,7 +52,7 @@ export default {
     background-color white;
     border-radius 10px;
     position relative;
-    top -20px;
+    top -10px;
     .header
       width 100%;
       height 46px;

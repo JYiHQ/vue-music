@@ -15,6 +15,7 @@ const songsDetails = {
       code: null,
       msg: '',
     },
+    backgroundColor: '',
   },
   mutations: {
     // 获取该歌单下面的歌曲列表
@@ -56,6 +57,10 @@ const songsDetails = {
     // 获取歌单收藏人数
     GET_SUBSCRIBED_COUNT(state, payload) {
       state.subscribedCount = payload;
+    },
+    // 获取背景颜色
+    GET_COLOR(state, payload) {
+      state.backgroundColor = payload;
     },
   },
   actions: {
