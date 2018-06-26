@@ -10,6 +10,7 @@ import SongsListDetails from '../pages/SongListDetails/index';
 import SongsList from '../pages/SongsList/index';
 import SongsType from '../pages/SongsType/index';
 import RankingList from '../pages/RankingList/index';
+import Comment from '../pages/Comment/index';
 
 Vue.use(Router);
 
@@ -64,6 +65,11 @@ export default new Router({
       path: '/rankingList',
       name: 'RankingList',
       component: RankingList,
+    },
+    {
+      path: '/comment',
+      name: 'Comment',
+      component: Comment,
     },
   ],
 });

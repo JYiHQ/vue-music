@@ -1,6 +1,6 @@
 <template>
   <div class="button-wrapper">
-    <div class="comment">
+    <div class="comment" @click="jumpCommentPage">
       <img class="img" src="../../../assets/icon/comment.svg"/>
       <div class="img-text">{{commentCount}}</div>
     </div>
@@ -28,6 +28,11 @@ export default {
       commentCount: state => state.songsDetails.commentCount,
       shareCount: state => state.songsDetails.shareCount,
     }),
+  },
+  methods: {
+    jumpCommentPage() {
+      this.$router.push('/comment');
+    },
   },
 };
 </script>

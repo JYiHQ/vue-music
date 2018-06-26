@@ -17,3 +17,12 @@ export function getSongDetail(item) {
     params: item,
   });
 }
+
+// 获取歌单评论
+export function getListComment(item) {
+  return request({
+    url: '/comment/playlist',
+    method: 'get',
+    params: item,
+  });
+}
