@@ -37,5 +37,5 @@ export default {
         color :white;
         position :absolute;
         top:10px;
-        left :60px;
+        left :60px
 </style>

@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     handleClick(listId) {
+      this.$store.commit('SAVE_ID', listId);
       this.$store.dispatch('get_listDetails', { id: listId }).then(() => {
         this.$router.push('/listDetails');
       });

@@ -1,4 +1,4 @@
-import { getSongsListDetails } from '../../api/songsListDetails';
+import { getListComment, getSongsListDetails } from '../../api/songsListDetails';
 
 const songsDetails = {
   state: {
@@ -16,6 +16,10 @@ const songsDetails = {
       msg: '',
     },
     backgroundColor: '',
+    // 歌单id
+    songListId: null,
+    // 获取评论
+    comments: {},
   },
   mutations: {
     // 获取该歌单下面的歌曲列表
@@ -62,6 +66,14 @@ const songsDetails = {
     GET_COLOR(state, payload) {
       state.backgroundColor = payload;
     },
+    // 保存歌单id
+    SAVE_ID(state, payload) {
+      state.songListId = payload;
+    },
+    // 获取所有评论
+    GET_COMMENTS(state, payload) {
+      Object.assign(state.comments, payload);
+    },
   },
   actions: {
     // 请求
@@ -76,6 +88,14 @@ const songsDetails = {
       commit('GET_IMAGE_URL', response.data.playlist.coverImgUrl);
       commit('GET_PLAY_COUNT', response.data.playlist.playCount);
       commit('GET_SUBSCRIBED_COUNT', response.data.playlist.subscribedCount);
+    },
+    // 获取评论
+    async get_listComment({ commit, state }) {
+      const item = {
+        id: state.songListId,
+      };
+      const response = await getListComment(item);
+      commit('GET_COMMENTS', response.data);
     },
   },
 };

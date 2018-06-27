@@ -14,16 +14,14 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
-
 export default {
   name: 'SongListHeader',
+  props: ['bgColor'],
   data() {
     return {
       styleObject: {
-        backgroundColor: 'rgb(37,35,40)',
+        backgroundColor: this.bgColor,
         opacity: 0,
-        color: '#000',
       },
       headerText: '歌单',
       textTip: '编辑推荐：优质华语新歌优质华语新歌优质华语新歌优质华语新歌',
@@ -33,15 +31,11 @@ export default {
     document.addEventListener('scroll', this.handleScroll);
   },
   computed: {
-    ...mapState({
-      bgColor: state => state.songsDetails.backgroundColor,
-    }),
   },
   methods: {
     handleScroll() {
       const top = document.body.scrollTop + document.documentElement.scrollTop;
-      const result = (top / 200).toFixed(2);
-      this.styleObject.opacity = result;
+      this.styleObject.opacity = (top / 200).toFixed(2);
     },
     handleBack() {
       this.$router.go(-1);

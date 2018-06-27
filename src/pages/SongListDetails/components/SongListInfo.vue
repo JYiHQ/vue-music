@@ -1,17 +1,17 @@
 <template>
   <div class="content">
-    <div class="content-item" :style="styleObject">
-      <img id="image" class="img" :src="this.coverImgUrl"/>
-      <div class="playCount">
+    <div class="content-item" :style="backColor">
+      <img id="image" :style="styleObject" class="img" :src="this.coverImgUrl"/>
+      <div class="playCount" :style="styleObject">
         <img class="headset" src="../../../assets/icon/headset.svg"/>
         <span class="play-count">{{playCount}}</span>
       </div>
-      <div class="info-content">
+      <div class="info-content" :style="styleObject">
         <div class="list-name">{{listName}}</div>
         <img class="creator-img" :src="creatorInfo.avatarUrl"/>
         <span class="nickname">{{creatorInfo.nickname}}</span>
       </div>
-      <song-list-button></song-list-button>
+      <song-list-button :style="styleObject"></song-list-button>
     </div>
     <song-list></song-list>
   </div>
@@ -26,8 +26,11 @@ export default {
   name: 'SongListInfo',
   data() {
     return {
-      styleObject: {
+      backColor: {
         backgroundColor: 'gray',
+      },
+      styleObject: {
+        opacity: 1,
       },
     };
   },
@@ -49,6 +52,7 @@ export default {
     },
   },
   mounted() {
+    document.addEventListener('scroll', this.handleScroll);
     const img = document.getElementById('image');
     let color = '';
     RGBaster.colors(img, {
@@ -66,10 +70,16 @@ export default {
     this.timeFn = setInterval(() => {
       if (color) {
         this.$store.commit('GET_COLOR', color);
-        this.styleObject.backgroundColor = color;
+        this.backColor.backgroundColor = color;
         clearInterval(this.timeFn);
       }
     }, 100);
+  },
+  methods: {
+    handleScroll() {
+      const top = document.body.scrollTop + document.documentElement.scrollTop;
+      this.styleObject.opacity = 1 - (top / 250).toFixed(2);
+    },
   },
 };
 </script>
