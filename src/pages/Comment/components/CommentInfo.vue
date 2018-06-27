@@ -1,7 +1,7 @@
 <template>
   <div class="comment-content">
-    <div class="header1">精彩评论</div>
-    <div class="hot-comment">
+    <div class="header1" v-show="commentList.hotComments.length !== 0">精彩评论</div>
+    <div class="hot-comment" v-show="commentList.hotComments.length !== 0">
       <div class="hot-item" v-for="item in commentList.hotComments" :key="item.commentId">
         <div class="item-img">
           <img class="img" :src="item.user.avatarUrl"/>
@@ -65,10 +65,9 @@ export default {
   },
   computed: {
     ...mapState({
-      // comments: state => state.songsDetails.comments,
     }),
   },
-  mounted() {
+  created() {
     // 获取评论
     this.$store.dispatch('get_listComment').then(() => {
       this.commentList = this.$store.state.songsDetails.comments;

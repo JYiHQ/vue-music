@@ -1,22 +1,38 @@
 <template>
   <div class="header-wrapper">
     <img @click="handlePageBack" class="img" src="../../../assets/icon/jiantouzuo.svg"/>
-    <div class="span">{{headerText}}</div>
+    <div class="span">评论({{headerText}})</div>
     <img class="left" src="../../../assets/icon/share.svg"/>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'CommentHeader',
   data() {
     return {
-      headerText: '评论(10000)',
+      headerText: '17',
+      timeFn: null,
     };
   },
   methods: {
     handlePageBack() {
       this.$router.go(-1);
     },
+  },
+  computed: {
+    ...mapState({
+      comments: state => state.songsDetails.comments,
+    }),
+  },
+  mounted() {
+    this.timeFn = setInterval(() => {
+      if (this.comments.total) {
+        this.headerText = this.comments.total;
+        clearInterval(this.timeFn);
+      }
+    }, 70);
   },
 };
 </script>

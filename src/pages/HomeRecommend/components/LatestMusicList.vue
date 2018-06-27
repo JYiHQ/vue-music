@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="header">
+    <div class="header" @click="jumpLatestPage">
       <h4>最新音乐</h4>
       <img class="img" src="../../../assets/icon/arrow-right.svg"/>
     </div>
@@ -33,6 +33,11 @@ export default {
     this.$store.dispatch('get_latestMusic').then(() => {
       this.list = this.latestMusic.slice(0, 6);
     });
+  },
+  methods: {
+    jumpLatestPage() {
+      this.$router.push('/latestDisc');
+    },
   },
 };
 </script>

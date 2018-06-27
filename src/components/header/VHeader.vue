@@ -19,6 +19,7 @@ export default {
 </script>
 <style scoped lang="stylus">
   .header-wrapper
+    width 100%
     position fixed
     top 0
     z-index 999

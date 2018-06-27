@@ -6,8 +6,8 @@
 </template>
 <script>
 import { mapState } from 'vuex';
-import CommentHeader from './comments/CommentHeader';
-import CommentContent from './comments/CommentContent';
+import CommentHeader from './components/CommentHeader';
+import CommentContent from './components/CommentContent';
 
 export default {
   name: 'Comment',

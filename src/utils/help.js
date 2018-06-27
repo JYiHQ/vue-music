@@ -54,6 +54,5 @@ export function handleTime(time) {
   } else {
     result = date;
   }
-  console.log(result);
   return result;
 }

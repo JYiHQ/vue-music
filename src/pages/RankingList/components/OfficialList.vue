@@ -45,9 +45,10 @@ export default {
             this.$store.dispatch('get_officialRankingList', { idx: 2 }).then(() => {
               this.$store.dispatch('get_officialRankingList', { idx: 4 }).then(() => {
                 this.$store.dispatch('get_officialRankingList', { idx: 23 }).then(() => {
-                  setTimeout(() => {
-                    this.officialList = this.handleData();
-                  }, 500);
+                  // setTimeout(() => {
+                  //   this.officialList = this.handleData();
+                  // }, 500);
+                  this.officialList = this.imageList.slice(0, 6);
                 });
               });
             });

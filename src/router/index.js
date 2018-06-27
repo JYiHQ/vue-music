@@ -11,6 +11,7 @@ import SongsList from '../pages/SongsList/index';
 import SongsType from '../pages/SongsType/index';
 import RankingList from '../pages/RankingList/index';
 import Comment from '../pages/Comment/index';
+import LatestDisc from '../pages/LatestDisc/index';
 
 Vue.use(Router);
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/comment',
       name: 'Comment',
       component: Comment,
+    },
+    {
+      path: '/latestDisc',
+      name: 'LatestDisc',
+      component: LatestDisc,
     },
   ],
 });

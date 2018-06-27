@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="header">
+    <div class="header" @click="handleJumpSongPage">
       <h4>推荐歌单</h4>
       <img class="img" src="../../../assets/icon/arrow-right.svg"/>
     </div>
@@ -44,6 +44,9 @@ export default {
       this.$store.dispatch('get_listDetails', { id: listId }).then(() => {
         this.$router.push('/listDetails');
       });
+    },
+    handleJumpSongPage() {
+      this.$router.push('/songsList');
     },
   },
 };
