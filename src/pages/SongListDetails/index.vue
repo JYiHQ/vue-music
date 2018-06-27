@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <song-list-header :bgColor="bgColor"></song-list-header>
+    <song-list-header></song-list-header>
     <song-list-info></song-list-info>
   </div>
 </template>

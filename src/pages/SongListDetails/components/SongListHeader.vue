@@ -14,21 +14,27 @@
   </div>
 </template>
 <script>
+import Bus from '../Bus/Bus';
+
 export default {
   name: 'SongListHeader',
-  props: ['bgColor'],
   data() {
     return {
       styleObject: {
-        backgroundColor: this.bgColor,
+        backgroundColor: '',
         opacity: 0,
       },
       headerText: '歌单',
       textTip: '编辑推荐：优质华语新歌优质华语新歌优质华语新歌优质华语新歌',
+      bgColor: '',
     };
   },
   mounted() {
     document.addEventListener('scroll', this.handleScroll);
+    Bus.$on('handleGetColor', (color) => {
+      this.styleObject.backgroundColor = color;
+      console.log(color);
+    });
   },
   computed: {
   },

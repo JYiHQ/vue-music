@@ -19,6 +19,7 @@
 <script>
 import { mapState } from 'vuex';
 import RGBaster from '../../../assets/js/rgbaster';
+import Bus from '../Bus/Bus';
 import SongListButton from './SongListButton';
 import SongList from './SongList';
 
@@ -70,6 +71,7 @@ export default {
     this.timeFn = setInterval(() => {
       if (color) {
         this.$store.commit('GET_COLOR', color);
+        Bus.$emit('handleGetColor', color);
         this.backColor.backgroundColor = color;
         clearInterval(this.timeFn);
       }
