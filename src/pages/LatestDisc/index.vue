@@ -1,18 +1,18 @@
 <template>
   <div class="wrapper">
     <v-header :headerText="headerText"></v-header>
-    <latest-content></latest-content>
+    <latest-disc-content></latest-disc-content>
   </div>
 </template>
 <script>
 import VHeader from '../../components/header/VHeader';
-import LatestContent from './components/LatestDiscContent';
+import LatestDiscContent from './components/LatestDiscContent';
 
 export default {
   name: 'LatestDisc',
   components: {
     VHeader,
-    LatestContent,
+    LatestDiscContent,
   },
   data() {
     return {

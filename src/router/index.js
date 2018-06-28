@@ -12,6 +12,7 @@ import SongsType from '../pages/SongsType/index';
 import RankingList from '../pages/RankingList/index';
 import Comment from '../pages/Comment/index';
 import LatestDisc from '../pages/LatestDisc/index';
+import AlbumSongList from '../pages/AlbumSongList/index';
 
 Vue.use(Router);
 
@@ -76,6 +77,11 @@ export default new Router({
       path: '/latestDisc',
       name: 'LatestDisc',
       component: LatestDisc,
+    },
+    {
+      path: '/albumSongList',
+      name: 'AlbumSongList',
+      component: AlbumSongList,
     },
   ],
 });

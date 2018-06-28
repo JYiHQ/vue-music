@@ -9,7 +9,7 @@ export function getLatestDisc() {
 }
 
 // 获取专辑歌曲
-export function getDiscSong(item) {
+export function getAlbumSong(item) {
   return request({
     url: '/album',
     method: 'get',
