@@ -13,6 +13,8 @@ import RankingList from '../pages/RankingList/index';
 import Comment from '../pages/Comment/index';
 import LatestDisc from '../pages/LatestDisc/index';
 import AlbumSongList from '../pages/AlbumSongList/index';
+import SingerType from '../pages/SingerType/index';
+import HotSingers from '../pages/HotSingers/index';
 
 Vue.use(Router);
 
@@ -82,6 +84,16 @@ export default new Router({
       path: '/albumSongList',
       name: 'AlbumSongList',
       component: AlbumSongList,
+    },
+    {
+      path: '/singerType',
+      name: 'SingerType',
+      component: SingerType,
+    },
+    {
+      path: '/hotSingers',
+      name: 'HotSingers',
+      component: HotSingers,
     },
   ],
 });

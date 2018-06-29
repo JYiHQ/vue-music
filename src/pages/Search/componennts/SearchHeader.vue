@@ -6,7 +6,7 @@
       <img v-show="isShow" class="cancel" @click="handleClean"
            src="../../../assets/icon/cancel-white.svg"/>
     </div>
-    <div class="header-content">
+    <div class="header-content" @click="jumpSingerType">
       <img class="singer-img" src="../../../assets/icon/singer.svg"/>
       <span class="span-text">歌手分类</span>
       <img class="arrow-img" src="../../../assets/icon/arrow-right.svg"/>
@@ -35,6 +35,9 @@ export default {
     handleClean() {
       this.searchContent = '';
       this.isShow = false;
+    },
+    jumpSingerType() {
+      this.$router.push('/singerType');
     },
   },
 };

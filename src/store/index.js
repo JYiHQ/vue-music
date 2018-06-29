@@ -6,6 +6,7 @@ import songsDetails from './modules/songsListDetails';
 import songList from './modules/songsList';
 import rankingList from './modules/rankingList';
 import latestDisc from './modules/latestDisc';
+import hotSingers from './modules/hotSingers';
 
 Vue.use(Vuex);
 
@@ -18,5 +19,6 @@ export default new Vuex.Store({
     songList,
     rankingList,
     latestDisc,
+    hotSingers,
   },
 });
