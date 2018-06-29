@@ -15,6 +15,7 @@ import LatestDisc from '../pages/LatestDisc/index';
 import AlbumSongList from '../pages/AlbumSongList/index';
 import SingerType from '../pages/SingerType/index';
 import HotSingers from '../pages/HotSingers/index';
+import SingerInfo from '../pages/SingerInfo/index';
 
 Vue.use(Router);
 
@@ -94,6 +95,11 @@ export default new Router({
       path: '/hotSingers',
       name: 'HotSingers',
       component: HotSingers,
+    },
+    {
+      path: '/singerInfo',
+      name: 'SingerInfo',
+      component: SingerInfo,
     },
   ],
 });

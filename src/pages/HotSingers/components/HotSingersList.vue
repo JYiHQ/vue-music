@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <div class="item" v-for="item in singerList" :key="item.id">
+      <div class="item" v-for="item in singerList" :key="item.id" @click="jumpSingerInfo(item)">
         <div class="imgWrapper">
-          <img class="img" :src="item.picUrl"/>
+          <img class="img" :src="item.img1v1Url"/>
         </div>
         <div class="singer-name">
           <span class="span">{{item.name}}</span>
@@ -14,6 +14,7 @@
 </template>
 <script>
 import { mapState } from 'vuex';
+import Bus from '../../../assets/js/Bus';
 
 export default {
   name: 'HotSingerList',
@@ -21,6 +22,17 @@ export default {
     ...mapState({
       singerList: state => state.hotSingers.singerList,
     }),
+  },
+  methods: {
+    jumpSingerInfo(item) {
+      this.$store.dispatch('get_singerSong', { id: item.id }).then(() => {
+        Bus.$emit('getSingerInfo');
+      });
+      this.$store.dispatch('get_singerAlbum', { id: item.id });
+      this.$store.dispatch('get_singerMV', { id: item.id });
+      this.$store.dispatch('get_singerDescription', { id: item.id });
+      this.$router.push('/singerInfo');
+    },
   },
 };
 </script>

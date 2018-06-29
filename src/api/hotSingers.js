@@ -26,3 +26,21 @@ export function getSingerSongs(item) {
     params: item,
   });
 }
+
+// 获取歌手mv
+export function getSingerMV(item) {
+  return request({
+    url: '/artist/mv',
+    method: 'get',
+    params: item,
+  });
+}
+
+// 获取歌手描述
+export function getSingerDescription(item) {
+  return request({
+    url: '/artist/desc',
+    method: 'get',
+    params: item,
+  });
+}
