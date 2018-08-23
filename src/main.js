@@ -5,8 +5,13 @@ import 'swiper/dist/css/swiper.css';
 import App from './App';
 import router from './router';
 import store from './store';
+
+// 重置样式
 import './assets/css/main.css';
 import './assets/font/iconfont.css';
+
+//引入icons
+import './icons';
 
 Vue.config.productionTip = false;
 
